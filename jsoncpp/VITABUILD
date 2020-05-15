@@ -1,0 +1,17 @@
+pkgname=jsoncpp
+pkgver=1.8.4
+pkgrel=1
+url="https://github.com/open-source-parsers/jsoncpp"
+source=("https://github.com/open-source-parsers/jsoncpp/archive/$pkgver.tar.gz")
+sha256sums=('c49deac9e0933bcb7044f08516861a2d560988540b23de2ac1ad443b219afdb6')
+
+build() {
+  mkdir -p $pkgname-$pkgver/build && cd $pkgname-$pkgver/build
+  cmake .. -DCMAKE_TOOLCHAIN_FILE=$DOLCESDK/share/dolce.toolchain.cmake -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_INSTALL_INCLUDEDIR=include/jsoncpp -DJSONCPP_WITH_POST_BUILD_UNITTEST=OFF -DJSONCPP_WITH_TESTS=OFF -DJSONCPP_WITH_CMAKE_PACKAGE=ON
+  make -j$(nproc)
+}
+
+package () {
+  cd $pkgname-$pkgver/build
+  make DESTDIR=$pkgdir install
+}
