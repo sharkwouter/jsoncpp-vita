@@ -23,7 +23,7 @@ void LoadJson(std::string filename, Json::Value *data) {
 int main(int argc, char *argv[]) {
 	psvDebugScreenInit();
 	Json::Value data;
-	LoadJson("message.json", &data);
+	LoadJson("app0:/message.json", &data);
 	printf(data.get("message", "Could not load json message!").asString().c_str());
 	sceKernelDelayThread(3*1000000); // Wait for 3 seconds
 	sceKernelExitProcess(0);
