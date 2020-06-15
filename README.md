@@ -1,6 +1,6 @@
 # jsoncpp vita
 
-Jsoncpp is a library for working with json in C++ which is very convenient to use. This is an attempt at bringing it to the Vita with a VITABUILD and an example. Currently it doesn't work, but I'm not sure why.
+Jsoncpp is a library for working with json in C++ which is very convenient to use. This is an attempt at bringing it to the Vita with a VITABUILD and an example.
 
 ## Testing
 
